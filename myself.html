@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MinHak's Portfolio - ABOUT ME</title>
+
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="logo-btn" onclick="location.href='index.html'"></div>
+    <div class="main-menu-btn" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <span class="menu-close" onclick="toggleMenu()">&times;</span>
+        <nav>
+            <ul>
+                <li onclick="location.href='index.html'">HOME</li>
+                <li onclick="location.href='portfolio.html'">PORTFOLIO</li>
+                <li onclick="location.href='myself.html'">ABOUT ME</li>
+            </ul>
+        </nav>
+    </div>
+
+
+    <div class="container">
+        <div class="section active" style="background-image: url('images/profile1.png');"></div>
+        <div class="section" style="background-image: url('images/profile2.png');"></div>
+        <div class="section" style="background-image: url('images/profile3.png');"></div>
+        <div class="section" style="background-image: url('images/profile4.png');"></div>
+    </div>
+
+    <div class="about-nav-container">
+        <div class="about-nav-btn prev" onclick="goPrev()">
+            <img src="images/arrow_up.png" alt="이전">
+        </div>
+        <div class="about-nav-btn next" onclick="goNext()">
+            <img src="images/arrow_down.png" alt="다음">
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

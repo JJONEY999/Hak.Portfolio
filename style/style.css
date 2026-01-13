@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+    background: #000;
+}
+
+@font-face {
+    font-family: "OkDanDan";
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/OkDanDan-Bold.ttf') format('truetype');
+}
+
+body {
+    font-family: 'OkDanDan', sans-serif;
+}
+
+
+/* 렌즈 영역 안에서만 보이도록 제한 */
+.lens-content-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    /* 안경 알 모양으로 마스킹 (좌표는 안경 위치에 맞게 수정) */
+    clip-path: circle(15% at 35% 50%) circle(15% at 65% 50%);
+    z-index: 1;
+}
+
+.item {
+    position: absolute;
+    width: 80px;
+    /* 적절한 크기 조절 */
+}
+
+/* 1. 둥둥 떠다니는 구름 */
+.cloud-1 {
+    top: 33%;
+    right: 34.2%;
+    width: 90px;
+    animation: float 5s ease-in-out infinite;
+}
+
+.cloud-2 {
+    top: 37%;
+    right: 27.2%;
+    width: 100px;
+    animation: float 4s ease-in-out infinite;
+}
+
+.rainbow-1 {
+    top: 40%;
+    left: 13.70%;
+    width: 160px;
+    animation: float 4s ease-in-out infinite;
+}
+
+
+/* 4. 열기구 (천천히 상승/하강) */
+.balloon-1 {
+    top: 48%;
+    left: 40.5%;
+    width: 72px;
+    animation: balloonFloat 6s ease-in-out infinite;
+}
+
+.balloon-2 {
+    top: 32%;
+    left: 29.5%;
+    width: 50px;
+    animation: balloonFloat 5.5s ease-in-out infinite;
+}
+
+.balloon-3 {
+    top: 63%;
+    right: 31.6%;
+    width: 90px;
+    animation: balloonFloat 6.5s ease-in-out infinite;
+}
+
+/* --- 애니메이션 정의 --- */
+
+/* 둥둥 효과 */
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(10px, -15px);
+    }
+}
+
+/* 열기구 효과 */
+@keyframes balloonFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* 수정된 section 스타일 */
+.section {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    /* transform 제거, transition 시간을 살짝 줄여 더 가볍게 만듦 */
+    transition: opacity 0.8s ease-in-out, visibility 0.8s;
+}
+
+.section.active {
+    opacity: 1;
+    visibility: visible;
+    /* transform: translateX(0); -> 제거 */
+}
+
+/* 메인 텍스트 컨테이너 정중앙 배치 */
+.main-text {
+    position: absolute;
+    top: 15.4%;
+    /* 이미지 상단 위치에 맞춰 조정 */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 10;
+    width: 100%;
+}
+
+
+.title-wrap {
+    margin-bottom: 20px;
+}
+
+/* 2026 및 메인 타이틀 (100pt) */
+.year-text,
+.title {
+    margin-left: 56px;
+    display: block;
+    font-family: 'OkDanDan', sans-serif;
+    /* 준비하신 폰트 */
+    font-size: 107px;
+    /* 100pt 환산 */
+    font-weight: bold;
+    line-height: 0.7;
+    letter-spacing: -3.9px;
+    animation: fadeInUp 1.2s ease forwards;
+}
+
+.year-text {
+    font-size: 110px;
+    /* 이미지 비율에 맞춰 살짝 조정 */
+}
+
+/* 새로운 시선으로 세상을 보다 (27pt, Light) */
+.subtitle {
+    margin-bottom: -10px;
+    margin-left: 60px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: 300;
+    /* Light 굵기 */
+    font-size: 26px;
+    /* 27pt 환산 */
+    opacity: 0;
+    letter-spacing: -1.0px;
+    animation: fadeInUp 1.2s ease 0.5s forwards;
+}
+
+/* 부드럽게 올라오는 애니메이션 */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* 로고 및 햄버거 */
+.logo-btn {
+    position: fixed;
+    top: 40px;
+    left: 94px;
+    width: 120px;
+    height: 70px;
+    z-index: 2000;
+    cursor: pointer;
+    background: url('images/logo.png') no-repeat center/contain;
+}
+
+.main-menu-btn {
+    position: fixed;
+    top: 40px;
+    right: 78px;
+    z-index: 2000;
+    cursor: pointer;
+}
+
+/* [공통] 햄버거 버튼 기본 모양 */
+.main-menu-btn div {
+    width: 60px;
+    height: 8px;
+    margin: 6px 0;
+    transition: 0.3s;
+}
+
+/* [메인 페이지] 버튼 색상: 하얀색 */
+.main-page .main-menu-btn div {
+    background-color: #fff;
+}
+
+/* [서브 페이지 (포트폴리오, 어바웃미)] 버튼 색상: 검정색 */
+.sub-page .main-menu-btn div {
+    background-color: #000;
+}
+
+/* [추가 가독성] 서브 페이지의 화살표도 검정색으로 바꾸고 싶다면? */
+.sub-page .nav-arrow::after {
+    border-top: 5px solid #000;
+    border-right: 5px solid #000;
+}
+
+/* [추가 가독성] 서브 페이지의 로고가 잘 안 보일 수 있으니 확인이 필요합니다. 
+   만약 로고도 검정 계열이라면 그대로 두셔도 됩니다. */
+/* 사이드 메뉴 */
+
+.side-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 350px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 3000;
+    transition: 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.side-menu ul li {
+    position: relative;
+    transition: 0.3s;
+    font-size: 60px;
+    font-family: 'OkDanDan';
+}
+
+.side-menu ul li:hover {
+    padding-left: 20px;
+    color: orange;
+}
+
+.side-menu.active {
+    right: 0;
+}
+
+/* 글자 아래에 나타나는 밑줄 효과 */
+.side-menu ul li::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: orange;
+    transition: width 0.3s ease;
+}
+
+.side-menu ul li:hover::after {
+    width: 100%;
+}
+
+.side-menu li {
+    color: #fff;
+    font-size: 2.5rem;
+    margin: 40px 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+.menu-close {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: #fff;
+    font-size: 4rem;
+    cursor: pointer;
+}
+
+.menu-close:hover {
+    color: orange;
+}
+
+/* 화살표 공통 스타일 */
+.nav-arrow {
+    justify-items: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    /* 준비한 이미지 크기에 맞게 조정 */
+    height: 100px;
+    z-index: 2500;
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+    /* 색상은 이미지 자체가 바뀌므로 transform만 유지 */
+}
+
+.arrow-left {
+    left: 790px;
+}
+
+.arrow-right {
+    right: 250px;
+}
+
+.nav-arrow:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+
+
+/* 어바웃미 전용 */
+.portfolio-wrapper,
+.portfolio-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+.profile-link {
+    position: absolute;
+    left: 16.3%;
+    top: 77.1%;
+    width: 11.6%;
+    height: 6.2%;
+    cursor: pointer;
+}
+
+#profileLayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    z-index: 4000;
+    display: none;
+}
+
+.profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+    position: absolute;
+    display: none;
+}
+
+.profile-img.active {
+    display: block;
+}
+
+/* ABOUT ME 전용 수직 화살표 컨테이너 */
+.about-nav-container {
+    position: fixed;
+    right: 78px;
+    /* 오른쪽 여백 */
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    /* 위아래 배치 */
+    gap: 4px;
+    /* 버튼 사이 아주 좁은 간격 */
+    z-index: 2500;
+}
+
+.about-nav-btn {
+    width: 60px;
+    /* 이미지 비율에 맞춰 조정 */
+    height: 60px;
+    background-color: #000;
+    /* 검정색 배경 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+        transform: translateY(-50%);
+
+}
+
+.about-nav-btn:hover {
+    background-color: #333;
+        transform: translateY(-50%) scale(1.1);
+
+    /* 호버 시 약간 밝아짐 */
+}
+
+
+/* 기존에 작성하셨던 .nav-arrow 관련 CSS는 포트폴리오용이므로 
+   이 페이지(myself.html)에서는 사용하지 않거나 삭제하셔도 됩니다. */

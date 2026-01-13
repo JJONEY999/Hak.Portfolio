@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MinHak's Portfolio - WORKS</title>
+
+    <link rel="stylesheet" href="style/style.css">
+</head>
+
+<body>
+    <div class="logo-btn" onclick="location.href='index.html'"></div>
+    <div class="main-menu-btn" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div id="sideMenu" class="side-menu">
+        <span class="menu-close" onclick="toggleMenu()">&times;</span>
+        <nav>
+            <ul>
+                <li onclick="location.href='index.html'">HOME</li>
+                <li onclick="location.href='portfolio.html'">PORTFOLIO</li>
+                <li onclick="location.href='myself.html'">ABOUT ME</li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="nav-arrow arrow-left" onclick="goPrev()"></div>
+    <div class="nav-arrow arrow-right" onclick="goNext()"></div>
+
+    <div class="container">
+        <div class="section active" style="background-image: url('images/portfolio.png');"></div>
+        <div class="section" style="background-image: url('images/portfolio1.png');"></div>
+        <div class="section" style="background-image: url('images/portfolio2.png');"></div>
+        <div class="section" style="background-image: url('images/portfolio3.png');"></div>
+        <div class="section" style="background-image: url('images/portfolio4.png');"></div>
+        <div class="section" style="background-image: url('images/portfolio5.png');"></div>
+        <div class="section" style="background-image: url('images/portfolio6.png');"></div>
+
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
