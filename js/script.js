@@ -61,3 +61,17 @@ function toggleMenu() {
     const sideMenu = document.getElementById('sideMenu');
     if (sideMenu) sideMenu.classList.toggle('active');
 }
+
+// 7. 마우스 휠 이벤트 추가
+window.addEventListener('wheel', (e) => {
+    // 메뉴가 열려있을 때는 휠 작동 방지 (선택 사항)
+    const sideMenu = document.getElementById('sideMenu');
+    if (sideMenu && sideMenu.classList.contains('active')) return;
+
+    // e.deltaY가 양수이면 아래로 굴림(다음), 음수이면 위로 굴림(이전)
+    if (e.deltaY > 0) {
+        goNext();
+    } else {
+        goPrev();
+    }
+}, { passive: true });
