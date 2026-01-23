@@ -144,7 +144,6 @@ body {
     width: 100%;
 }
 
-
 .title-wrap {
     margin-bottom: 20px;
 }
@@ -219,6 +218,7 @@ body {
 
 /* [공통] 햄버거 버튼 기본 모양 */
 .main-menu-btn div {
+
     width: 60px;
     height: 8px;
     margin: 6px 0;
@@ -410,17 +410,160 @@ body {
     justify-content: center;
     cursor: pointer;
     transition: background-color 0.3s;
-        transform: translateY(-50%);
+    transform: translateY(-50%);
 
 }
 
 .about-nav-btn:hover {
     background-color: #333;
-        transform: translateY(-50%) scale(1.1);
+    transform: translateY(-50%) scale(1.1);
 
     /* 호버 시 약간 밝아짐 */
 }
+/* 클릭할 버튼 영역 (투명하게 설정하여 이미지 위 박스 위치에 맞춤) */
+.view-more-btn {
+    position: absolute;
+    left: 16.3%;      /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
+
+.view-more-btn1 {
+    position: absolute;
+    left: 3.9%;      /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
+.view-more-btn2 {
+    position: absolute;
+    left: 16.3%;      /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
+.view-more-btn3 {
+    position: absolute;
+    left: 16.3%;     /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
+.view-more-btn4 {
+    position: absolute;
+    left: 3.9%;      /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
+.view-more-btn5 {
+    position: absolute;
+    left: 3.9%;      /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
+.view-more-btn6 {
+    position: absolute;
+    left: 3.9%;      /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    bottom: 16.5%;   /* 이미지의 네모 박스 위치에 맞게 조절하세요 */
+    width: 224px;  /* 박스 크기 */
+    height: 60px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.0); /* 영역 확인용 (0으로 두면 투명) */
+    z-index: 100;
+}
 
 
-/* 기존에 작성하셨던 .nav-arrow 관련 CSS는 포트폴리오용이므로 
-   이 페이지(myself.html)에서는 사용하지 않거나 삭제하셔도 됩니다. */
+
+/* 팝업 배경 (어둡게) */
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none; /* 기본은 숨김 */
+    justify-content: center;
+    align-items: center;
+    z-index: 5000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.popup-overlay.show {
+    display: flex;
+    opacity: 1;
+}
+
+/* 팝업창 본체 */
+.popup-content {
+    background: #fff;
+    width: 80%;
+    max-width: 1000px;
+    height: 80vh;
+    position: relative;
+    border-radius: 10px;
+    overflow-y: auto; /* 내용이 길면 스크롤 */
+    padding: 40px;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from { transform: scale(0.8); }
+    to { transform: scale(1); }
+}
+
+/* 닫기 버튼 */
+.popup-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* 팝업이 열렸을 때 body에 추가될 클래스 */
+.no-scroll {
+    overflow: hidden !important;
+    /* 모바일 환경까지 고려한다면 아래 속성도 도움이 됩니다 */
+    height: 100%; 
+    touch-action: none; 
+}
+/* 투명 버튼 스타일 (a태그와 div태그 공통 적용) */
+.invisible-btn.link-site, .view-more-btn2 {
+    position: absolute;
+    cursor: pointer;
+    display: block;
+    z-index: 100;
+}
+
+/* 사이트 바로가기 (주황색 버튼 위치) */
+.link-site {
+    left: 4%;      /* 왼쪽 여백 */
+    bottom: 16.5%;   /* 하단 여백 */
+    width: 11.5%;      /* 버튼 가로 크기 */
+    height: 60px;    /* 버튼 세로 크기 */
+}
+

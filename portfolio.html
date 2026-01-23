@@ -31,16 +31,40 @@
     <div class="nav-arrow arrow-right" onclick="goNext()"></div>
 
     <div class="container">
-        <div class="section active" style="background-image: url('images/portfolio.png');"></div>
-        <div class="section" style="background-image: url('images/portfolio1.png');"></div>
-        <div class="section" style="background-image: url('images/portfolio2.png');"></div>
-        <div class="section" style="background-image: url('images/portfolio3.png');"></div>
-        <div class="section" style="background-image: url('images/portfolio4.png');"></div>
-        <div class="section" style="background-image: url('images/portfolio5.png');"></div>
-        <div class="section" style="background-image: url('images/portfolio6.png');"></div>
-
+        <div class="section active" style="background-image: url('images/portfolio.png');">
+            <div class="view-more-btn" onclick="openPopup(1)"></div><a href="https://jjoney999.github.io/website/
+" target="_blank" class="invisible-btn link-site"></a>
+        </div>
+        <div class="section" style="background-image: url('images/portfolio1.png');">
+            <div class="view-more-btn1" onclick="openPopup(2)"></div>
+        </div>
+        <div class="section" style="background-image: url('images/portfolio2.png');">
+            <div class="view-more-btn2" onclick="openPopup(3)"></div>
+            <div class="invisible-btn link-site" onclick="openPopup(8)"></div>
+        </div>
+        <div class="section" style="background-image: url('images/portfolio3.png');">
+            <div class="view-more-btn3" onclick="openPopup(4)"></div><a
+                href="https://www.figma.com/proto/thqPDF7b3CKatsivvkR9Z2/20251119_%EB%AA%A8%EB%B0%94%EC%9D%BC%EB%94%94%EC%9E%90%EC%9D%B8_%EC%9A%B0%EB%AF%BC%ED%95%99?page-id=172%3A1958&node-id=172-2565&p=f&viewport=273%2C319%2C0.23&t=0hjV3UYol2Ty1JCG-1&scaling=scale-down&content-sc="
+                target="_blank" class="invisible-btn link-site"></a>
+        </div>
     </div>
-
+    <div class="section" style="background-image: url('images/portfolio4.png');">
+        <div class="view-more-btn4" onclick="openPopup(5)"></div>
+    </div>
+    <div class="section" style="background-image: url('images/portfolio5.png');">
+        <div class="view-more-btn5" onclick="openPopup(6)"></div>
+    </div>
+    <div class="section" style="background-image: url('images/portfolio6.png');">
+        <div class="view-more-btn6" onclick="openPopup(7)"></div>
+    </div>
+    <div id="landingPopup" class="popup-overlay">
+        <div class="popup-content">
+            <span class="popup-close" onclick="closePopup()">&times;</span>
+            <div id="popupBody">
+            </div>
+        </div>
+    </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 
